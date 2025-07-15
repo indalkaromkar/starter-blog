@@ -1,17 +1,21 @@
-'use client'
+'use client' // Client-side component for theme switching
 
+// React hooks and Next.js theme utilities
 import { Fragment, useEffect, useState } from 'react'
-import { useTheme } from 'next-themes'
+import { useTheme } from 'next-themes' // Theme management hook
+// Headless UI components for accessible dropdown menu
 import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  Radio,
-  RadioGroup,
-  Transition,
+  Menu, // Dropdown menu container
+  MenuButton, // Menu trigger button
+  MenuItem, // Individual menu item
+  MenuItems, // Menu items container
+  Radio, // Radio button for theme selection
+  RadioGroup, // Radio button group
+  Transition, // Animation wrapper
 } from '@headlessui/react'
 
+// Icon components for different theme states
+// Sun icon - represents light theme
 const Sun = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -26,6 +30,8 @@ const Sun = () => (
     />
   </svg>
 )
+
+// Moon icon - represents dark theme
 const Moon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +42,8 @@ const Moon = () => (
     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
   </svg>
 )
+
+// Monitor icon - represents system theme (follows OS preference)
 const Monitor = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -52,35 +60,49 @@ const Monitor = () => (
     <line x1="10" y1="13" x2="10" y2="17"></line>
   </svg>
 )
+
+// Blank placeholder - prevents layout shift during hydration
 const Blank = () => <svg className="h-6 w-6" />
 
+// Theme switcher component with dropdown menu
 const ThemeSwitch = () => {
+  // Track component mount state to prevent hydration mismatch
   const [mounted, setMounted] = useState(false)
+  // Get theme state and setter from next-themes
   const { theme, setTheme, resolvedTheme } = useTheme()
 
-  // When mounted on client, now we can show the UI
+  // Set mounted to true after component mounts on client
+  // This prevents hydration mismatch between server and client
   useEffect(() => setMounted(true), [])
 
   return (
     <div className="flex items-center">
+      {/* Dropdown menu for theme selection */}
       <Menu as="div" className="relative inline-block text-left">
+        {/* Menu trigger button with theme icon */}
         <div className="hover:text-primary-500 dark:hover:text-primary-400 flex items-center justify-center">
           <MenuButton aria-label="Theme switcher">
+            {/* Show appropriate icon based on current theme, or blank during SSR */}
             {mounted ? resolvedTheme === 'dark' ? <Moon /> : <Sun /> : <Blank />}
           </MenuButton>
         </div>
+        
+        {/* Animated dropdown menu */}
         <Transition
           as={Fragment}
-          enter="transition ease-out duration-100"
+          enter="transition ease-out duration-100" // Enter animation
           enterFrom="transform opacity-0 scale-95"
           enterTo="transform opacity-100 scale-100"
-          leave="transition ease-in duration-75"
+          leave="transition ease-in duration-75" // Exit animation
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
+          {/* Menu items container */}
           <MenuItems className="ring-opacity-5 absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white ring-1 shadow-lg ring-black focus:outline-hidden dark:bg-gray-800">
+            {/* Radio group for theme selection */}
             <RadioGroup value={theme} onChange={setTheme}>
               <div className="p-1">
+                {/* Light theme option */}
                 <Radio value="light">
                   <MenuItem>
                     {({ focus }) => (
@@ -95,6 +117,8 @@ const ThemeSwitch = () => {
                     )}
                   </MenuItem>
                 </Radio>
+                
+                {/* Dark theme option */}
                 <Radio value="dark">
                   <MenuItem>
                     {({ focus }) => (
@@ -111,6 +135,8 @@ const ThemeSwitch = () => {
                     )}
                   </MenuItem>
                 </Radio>
+                
+                {/* System theme option (follows OS preference) */}
                 <Radio value="system">
                   <MenuItem>
                     {({ focus }) => (

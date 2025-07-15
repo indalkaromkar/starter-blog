@@ -1,35 +1,200 @@
 ![tailwind-nextjs-banner](/public/static/images/twitter-card.png)
 
-# Tailwind Nextjs Starter Blog
+# Tailwind Next.js Starter Blog
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/timlrx/tailwind-nextjs-starter-blog?style=social)](https://GitHub.com/timlrx/tailwind-nextjs-starter-blog/stargazers/)
 [![GitHub forks](https://img.shields.io/github/forks/timlrx/tailwind-nextjs-starter-blog?style=social)](https://github.com/timlrx/tailwind-nextjs-starter-blog/forks)
-[![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Ftimlrxx)](https://x.com/timlrxx)
-[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/sponsors/timlrx)](https://github.com/sponsors/timlrx)
-
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/timlrx/tailwind-nextjs-starter-blog)
 
-This is a [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) blogging starter template. Version 2 is based on Next App directory with [React Server Component](https://nextjs.org/docs/getting-started/react-essentials#server-components) and uses [Contentlayer](https://www.contentlayer.dev/) to manage markdown content.
+A modern, feature-rich blogging platform built with [Next.js 14](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), and [Contentlayer](https://www.contentlayer.dev/). Perfect for developers, writers, and content creators who want a fast, customizable blog with modern web technologies.
 
-Probably the most feature-rich Next.js markdown blogging template out there. Easily configurable and customizable. Perfect as a replacement to existing Jekyll and Hugo individual blogs.
+## ✨ Features
 
-Check out the documentation below to get started.
+- 🚀 **Next.js 14** with App Router and React Server Components
+- 🎨 **Tailwind CSS** for beautiful, responsive design
+- 📝 **MDX** support for rich content with React components
+- 🌙 **Dark/Light theme** with system preference detection
+- 🔍 **Full-text search** (local or Algolia integration)
+- 💬 **Comments system** (Giscus, Utterances, or Disqus)
+- 📊 **Analytics** (Umami, Plausible, Google Analytics, PostHog)
+- 📧 **Newsletter** integration (Buttondown, Mailchimp, ConvertKit)
+- 🏷️ **Tag system** with dedicated tag pages
+- 👥 **Multi-author** support
+- 📱 **Mobile-first** responsive design
+- ⚡ **Performance optimized** (95+ Lighthouse score)
+- 🔒 **Security headers** and best practices
+- 📈 **SEO optimized** with structured data
+- 🎯 **TypeScript** for type safety
 
-Facing issues? Check the [FAQ page](https://github.com/timlrx/tailwind-nextjs-starter-blog/wiki) and do a search on past issues. Feel free to open a new issue if none has been posted previously.
+## 🚀 Quick Start
 
-Feature request? Check the past discussions to see if it has been brought up previously. Otherwise, feel free to start a new discussion thread. All ideas are welcomed!
+### 1. Clone and Install
 
-## Variations
+```bash
+# Clone the repository
+npx degit 'timlrx/tailwind-nextjs-starter-blog' my-blog
+cd my-blog
 
-**Note**: These are community contributed forks using different frameworks or with significant changes to the codebase - not officially supported.
+# Install dependencies
+yarn install
+# or
+npm install
+```
 
-Astro alternative - [Tailwind Astro Template](https://github.com/wanoo21/tailwind-astro-starting-blog).
+### 2. Configure Your Blog
 
-Remix-run alternative - [Tailwind Remix-run Starter Blog Template](https://github.com/SangeetAgarwal/tailwind-remix-run-mdxjs-typescript-starter-blog).
+Edit `data/siteMetadata.js` with your information:
 
-Internationalization support - [Template with i18n](https://tailwind-nextjs-starter-blog-i18n.vercel.app/) and [source code](https://github.com/PxlSyl/tailwind-nextjs-starter-blog-i18n/tree/main).
+```javascript
+const siteMetadata = {
+  title: 'Your Blog Title',
+  author: 'Your Name',
+  headerTitle: 'Your Blog',
+  description: 'Your blog description',
+  siteUrl: 'https://yourdomain.com',
+  email: 'your@email.com',
+  github: 'https://github.com/yourusername',
+  // ... more settings
+}
+```
 
-## Examples V2
+### 3. Create Your First Post
+
+Create a new file in `data/blog/my-first-post.mdx`:
+
+```markdown
+---
+title: 'My First Blog Post'
+date: '2024-01-15'
+tags: ['hello', 'world']
+draft: false
+summary: 'Welcome to my new blog!'
+---
+
+# Hello World!
+
+This is my first blog post. Welcome to my blog!
+```
+
+### 4. Start Development
+
+```bash
+yarn dev
+# or
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see your blog!
+
+## 📚 Documentation
+
+- **[User Guide](USER_GUIDE.md)** - Content creation and site management
+- **[Developer Docs](DEVELOPER_DOCS.md)** - Technical documentation and customization
+- **[Original Template Docs](#original-documentation)** - Comprehensive feature documentation
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 with App Router
+- **Styling**: Tailwind CSS
+- **Content**: Contentlayer + MDX
+- **Language**: TypeScript
+- **Deployment**: Vercel (recommended)
+- **Analytics**: Multiple providers supported
+- **Comments**: GitHub Discussions via Giscus
+- **Search**: Local search with Kbar
+
+## 📁 Project Structure
+
+```
+├── app/                    # Next.js App Router pages
+├── components/             # Reusable UI components  
+├── layouts/               # Page layout templates
+├── data/                  # Content and configuration
+│   ├── blog/             # Blog posts (MDX files)
+│   ├── authors/          # Author profiles
+│   └── siteMetadata.js   # Site configuration
+├── public/               # Static assets
+└── css/                  # Stylesheets
+```
+
+## 🎨 Customization
+
+### Theme Colors
+
+Edit `tailwind.config.js`:
+
+```javascript
+colors: {
+  primary: {
+    500: '#your-color',
+    600: '#your-darker-color',
+  }
+}
+```
+
+### Navigation
+
+Edit `data/headerNavLinks.ts`:
+
+```javascript
+const headerNavLinks = [
+  { href: '/', title: 'Home' },
+  { href: '/blog', title: 'Blog' },
+  { href: '/about', title: 'About' },
+]
+```
+
+### Analytics
+
+Add to `data/siteMetadata.js`:
+
+```javascript
+analytics: {
+  googleAnalytics: {
+    googleAnalyticsId: 'G-XXXXXXXXXX'
+  }
+}
+```
+
+## 🚢 Deployment
+
+### Vercel (Recommended)
+
+1. Push to GitHub
+2. Connect repository to Vercel
+3. Deploy automatically
+
+### Static Export
+
+```bash
+EXPORT=1 UNOPTIMIZED=1 yarn build
+```
+
+### GitHub Pages
+
+Use the included workflow in `.github/workflows/pages.yml`
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our contributing guidelines and submit pull requests.
+
+## 📄 License
+
+[MIT](LICENSE) © [Timothy Lin](https://www.timlrx.com)
+
+---
+
+## Original Documentation
+
+## 🌟 Community Variations
+
+**Note**: Community-contributed forks with different frameworks or significant modifications.
+
+- **Astro**: [Tailwind Astro Template](https://github.com/wanoo21/tailwind-astro-starting-blog)
+- **Remix**: [Tailwind Remix Starter](https://github.com/SangeetAgarwal/tailwind-remix-run-mdxjs-typescript-starter-blog)
+- **i18n Support**: [Internationalization Template](https://github.com/PxlSyl/tailwind-nextjs-starter-blog-i18n)
+
+## 🎯 Live Examples
 
 - [Demo Blog](https://tailwind-nextjs-starter-blog.vercel.app/) - this repo
 - [My personal blog](https://www.timlrx.com) - modified to auto-generate blog posts with dates
@@ -88,13 +253,11 @@ Internationalization support - [Template with i18n](https://tailwind-nextjs-star
 - [Ryan Fitton's Blog](https://ryanfitton.co.uk/) – A custom theme version with 'Portfolio' section. Used as a personal Blog/Portfolio for development projects. ([source code](https://github.com/ryanfitton/ryanfitton-nextjs-2024))
 - [ktovoz.com](https://www.ktovoz.com/) - Kto's personal blog, sharing life, technology. Added article categories and article directory navigation 「中文」
 
-Using the template? Feel free to create a PR and add your blog to this list.
+**Using this template?** Submit a PR to add your blog to this showcase!
 
-## Examples V1
+## 📚 V1 Examples (Legacy)
 
-[v1-blogs-showcase.webm](https://github.com/timlrx/tailwind-nextjs-starter-blog/assets/28362229/2124c81f-b99d-4431-839c-347e01a2616c)
-
-Thanks to the community of users and contributors to the template! We are no longer accepting new blog listings over here. If you have updated from version 1 to version 2, feel free to remove your blog from this list and add it to the one above.
+**Note**: V1 examples are no longer maintained. Please upgrade to V2 and add your blog to the current showcase above.
 
 - [Aloisdg's cookbook](https://tambouille.vercel.app/) - with pictures and recipes!
 - [GautierArcin's demo with next translate](https://tailwind-nextjs-starter-blog-seven.vercel.app/) - includes translation of mdx posts, [source code](https://github.com/GautierArcin/tailwind-nextjs-starter-blog/tree/demo/next-translate)
@@ -127,218 +290,258 @@ Thanks to the community of users and contributors to the template! We are no lon
 - [meamenu.com](https://www.meamenu.com) - Landing page and product blog starting from this template. It also uses [framer-motion](https://www.framer.com/motion) for animations, custom layout templates, [waline](https://waline.js.org/en/) for blog comments and [primereact](https://primereact.org/) forms [Ita]
 - [giovanni.orciuolo.it](https://giovanni.orciuolo.it) - Giovanni Orciuolo's personal website, blog and everything nerd.
 
-## Motivation
+## 💡 Motivation
 
-I wanted to port my existing blog to Nextjs and Tailwind CSS but there was no easy out of the box template to use so I decided to create one. Design is adapted from [Tailwindlabs blog](https://github.com/tailwindlabs/blog.tailwindcss.com).
+Created to provide a modern, feature-rich blogging solution that combines the best of React ecosystem with current web development practices. Inspired by popular templates like Jekyll and Hugo Academic, but built for the modern web.
 
-I wanted it to be nearly as feature-rich as popular blogging templates like [beautiful-jekyll](https://github.com/daattali/beautiful-jekyll) and [Hugo Academic](https://github.com/wowchemy/wowchemy-hugo-modules) but with the best of React's ecosystem and current web development's best practices.
+Design adapted from [Tailwind Labs blog](https://github.com/tailwindlabs/blog.tailwindcss.com).
 
-## Features
+## 🔧 Technical Features
 
-- Next.js with Typescript
-- [Contentlayer](https://www.contentlayer.dev/) to manage content logic
-- Easy styling customization with [Tailwind 3.0](https://tailwindcss.com/blog/tailwindcss-v3) and primary color attribute
-- [MDX - write JSX in markdown documents!](https://mdxjs.com/)
-- Near perfect lighthouse score - [Lighthouse report](https://www.webpagetest.org/result/230805_BiDcBQ_4H7)
-- Lightweight, 85kB first load JS
-- Mobile-friendly view
-- Light and dark theme
-- Font optimization with [next/font](https://nextjs.org/docs/app/api-reference/components/font)
-- Integration with [pliny](https://github.com/timlrx/pliny) that provides:
-  - Multiple analytics options including [Umami](https://umami.is/), [Plausible](https://plausible.io/), [Simple Analytics](https://simpleanalytics.com/), Posthog and Google Analytics
-  - Comments via [Giscus](https://github.com/laymonage/giscus), [Utterances](https://github.com/utterance/utterances) or Disqus
-  - Newsletter API and component with support for Mailchimp, Buttondown, Convertkit, Klaviyo, Revue, Emailoctopus and Beehiiv
-  - Command palette search with [Kbar](https://github.com/timc1/kbar) or Algolia
-- Server-side syntax highlighting with line numbers and line highlighting via [rehype-prism-plus](https://github.com/timlrx/rehype-prism-plus)
-- Math display supported via [KaTeX](https://katex.org/)
-- Citation and bibliography support via [rehype-citation](https://github.com/timlrx/rehype-citation)
-- [Github alerts](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts) via [remark-github-blockquote-alert](https://github.com/jaywcjlove/remark-github-blockquote-alert)
-- Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
-- Support for tags - each unique tag will be its own page
-- Support for multiple authors
-- 3 different blog layouts
-- 2 different blog listing layouts
-- Support for nested routing of blog posts
-- Projects page
-- Preconfigured security headers
-- SEO friendly with RSS feed, sitemaps and more!
+### Core Technologies
+- **Next.js 14** with TypeScript and App Router
+- **Contentlayer** for content management and type generation
+- **Tailwind CSS 3.0** with easy customization
+- **MDX** for rich content with React components
 
-## Sample posts
+### Performance & SEO
+- **95+ Lighthouse score** - [View Report](https://www.webpagetest.org/result/230805_BiDcBQ_4H7)
+- **85kB first load JS** - Lightweight and fast
+- **Font optimization** with next/font
+- **Image optimization** with next/image
+- **SEO optimized** with RSS feeds, sitemaps, structured data
+- **Security headers** preconfigured
 
-- [A markdown guide](https://tailwind-nextjs-starter-blog.vercel.app/blog/github-markdown-guide)
-- [Learn more about images in Next.js](https://tailwind-nextjs-starter-blog.vercel.app/blog/guide-to-using-images-in-nextjs)
-- [A tour of math typesetting](https://tailwind-nextjs-starter-blog.vercel.app/blog/deriving-ols-estimator)
-- [Simple MDX image grid](https://tailwind-nextjs-starter-blog.vercel.app/blog/pictures-of-canada)
-- [Example of long prose](https://tailwind-nextjs-starter-blog.vercel.app/blog/the-time-machine)
-- [Example of Nested Route Post](https://tailwind-nextjs-starter-blog.vercel.app/blog/nested-route/introducing-multi-part-posts-with-nested-routing)
+### Content Features
+- **Syntax highlighting** with line numbers via rehype-prism-plus
+- **Math support** with KaTeX
+- **Citations** and bibliography support
+- **GitHub alerts** styling
+- **Multiple layouts** (3 post layouts, 2 listing layouts)
+- **Nested routing** for organized content
+- **Tag system** with dedicated pages
+- **Multi-author** support
 
-## Quick Start Guide
+### Integrations (via [Pliny](https://github.com/timlrx/pliny))
+- **Analytics**: Umami, Plausible, Simple Analytics, PostHog, Google Analytics
+- **Comments**: Giscus, Utterances, Disqus
+- **Newsletter**: Mailchimp, Buttondown, ConvertKit, Klaviyo, Beehiiv
+- **Search**: Kbar (local) or Algolia (hosted)
 
-1. Clone the repo
+## 📖 Sample Content
 
-```bash
-npx degit 'timlrx/tailwind-nextjs-starter-blog'
-```
+Explore these example posts to see the platform's capabilities:
 
-2. Personalize `siteMetadata.js` (site related information)
-3. Modify the content security policy in `next.config.js` if you want to use
-   other analytics provider or a commenting solution other than giscus.
-4. Personalize `authors/default.md` (main author)
-5. Modify `projectsData.ts`
-6. Modify `headerNavLinks.ts` to customize navigation links
-7. Add blog posts
-8. Deploy on Vercel
+- **[Markdown Guide](https://tailwind-nextjs-starter-blog.vercel.app/blog/github-markdown-guide)** - Complete formatting reference
+- **[Image Optimization](https://tailwind-nextjs-starter-blog.vercel.app/blog/guide-to-using-images-in-nextjs)** - Next.js image best practices
+- **[Math Typesetting](https://tailwind-nextjs-starter-blog.vercel.app/blog/deriving-ols-estimator)** - KaTeX mathematical notation
+- **[MDX Components](https://tailwind-nextjs-starter-blog.vercel.app/blog/pictures-of-canada)** - Interactive content examples
+- **[Long-form Content](https://tailwind-nextjs-starter-blog.vercel.app/blog/the-time-machine)** - Typography showcase
+- **[Nested Routing](https://tailwind-nextjs-starter-blog.vercel.app/blog/nested-route/introducing-multi-part-posts-with-nested-routing)** - Organized content structure
 
-## Installation
+## ⚡ Setup Checklist
 
-```bash
-yarn
-```
+1. **Clone**: `npx degit 'timlrx/tailwind-nextjs-starter-blog' my-blog`
+2. **Configure**: Edit `data/siteMetadata.js` with your information
+3. **Author**: Update `data/authors/default.md` with your profile
+4. **Navigation**: Customize `data/headerNavLinks.ts` menu items
+5. **Projects**: Edit `data/projectsData.ts` to showcase your work
+6. **Content**: Add your first post in `data/blog/`
+7. **Security**: Update CSP in `next.config.js` for external services
+8. **Deploy**: Push to Vercel for automatic deployment
 
-Please note, that if you are using Windows, you may need to run:
+## 💻 Development
+
+### Installation
 
 ```bash
+# Install dependencies
+yarn install
+# or
+npm install
+
+# Windows users may need:
 $env:PWD = $(Get-Location).Path
 ```
 
-## Development
-
-First, run the development server:
+### Development Server
 
 ```bash
+# Start development server
 yarn dev
+# or
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view your blog.
 
-Edit the layout in `app` or content in `data`. With live reloading, the pages auto-updates as you edit them.
+### Live Editing
+- Edit layouts in `app/` directory
+- Add content in `data/` directory  
+- Changes auto-reload in development
+- Hot module replacement for fast iteration
 
-## Extend / Customize
+## 🎨 Customization Guide
 
-`data/siteMetadata.js` - contains most of the site related information which should be modified for a user's need.
+### Key Configuration Files
 
-`data/authors/default.md` - default author information (required). Additional authors can be added as files in `data/authors`.
+| File | Purpose |
+|------|----------|
+| `data/siteMetadata.js` | Main site configuration and settings |
+| `data/authors/default.md` | Default author profile (required) |
+| `data/projectsData.ts` | Projects page content |
+| `data/headerNavLinks.ts` | Navigation menu items |
+| `data/logo.svg` | Site logo (replace with yours) |
 
-`data/projectsData.js` - data used to generate styled card on the projects page.
+### Content Directories
 
-`data/headerNavLinks.js` - navigation links.
+| Directory | Contents |
+|-----------|----------|
+| `data/blog/` | Blog posts in MDX format |
+| `data/authors/` | Author profile pages |
+| `public/static/` | Images, favicons, and static assets |
 
-`data/logo.svg` - replace with your own logo.
+### Styling & Layout
 
-`data/blog` - replace with your own blog posts.
+| File | Purpose |
+|------|----------|
+| `tailwind.config.js` | Tailwind CSS configuration |
+| `css/tailwind.css` | Global styles and customizations |
+| `css/prism.css` | Code block syntax highlighting |
+| `layouts/` | Page layout templates |
+| `components/MDXComponents.tsx` | Custom MDX components |
 
-`public/static` - store assets such as images and favicons.
+### Available Layouts
 
-`tailwind.config.js` and `css/tailwind.css` - tailwind configuration and stylesheet which can be modified to change the overall look and feel of the site.
+**Post Layouts:**
+- `PostLayout` - Default 2-column with author info
+- `PostSimple` - Simplified single-column layout  
+- `PostBanner` - Layout with featured banner image
 
-`css/prism.css` - controls the styles associated with the code blocks. Feel free to customize it and use your preferred prismjs theme e.g. [prism themes](https://github.com/PrismJS/prism-themes).
+**List Layouts:**
+- `ListLayout` - Blog listing with search bar
+- `ListLayoutWithTags` - Blog listing with tag sidebar
 
-`contentlayer.config.ts` - configuration for Contentlayer, including definition of content sources and MDX plugins used. See [Contentlayer documentation](https://www.contentlayer.dev/docs/getting-started) for more information.
+### Technical Configuration
 
-`components/MDXComponents.js` - pass your own JSX code or React component by specifying it over here. You can then use them directly in the `.mdx` or `.md` file. By default, a custom link, `next/image` component, table of contents component and Newsletter form are passed down. Note that the components should be default exported to avoid [existing issues with Next.js](https://github.com/vercel/next.js/issues/51593).
+| File | Purpose |
+|------|----------|
+| `contentlayer.config.ts` | Content processing and MDX plugins |
+| `next.config.js` | Next.js configuration and security headers |
+| `app/` | Next.js App Router pages and routing |
 
-`layouts` - main templates used in pages:
+## ✍️ Content Creation
 
-- There are currently 3 post layouts available: `PostLayout`, `PostSimple` and `PostBanner`. `PostLayout` is the default 2 column layout with meta and author information. `PostSimple` is a simplified version of `PostLayout`, while `PostBanner` features a banner image.
-- There are 2 blog listing layouts: `ListLayout`, the layout used in version 1 of the template with a search bar and `ListLayoutWithTags`, currently used in version 2, which omits the search bar but includes a sidebar with information on the tags.
+Content is managed using [Contentlayer](https://www.contentlayer.dev/) for type-safe content processing.
 
-`app` - pages to route to. Read the [Next.js documentation](https://nextjs.org/docs/app) for more information.
+### Frontmatter Reference
 
-`next.config.js` - configuration related to Next.js. You need to adapt the Content Security Policy if you want to load scripts, images etc. from other domains.
+Follows [Hugo's frontmatter standards](https://gohugo.io/content-management/front-matter/):
 
-## Post
+| Field | Required | Type | Description |
+|-------|----------|------|-------------|
+| `title` | ✅ | string | Post title |
+| `date` | ✅ | date | Publication date (YYYY-MM-DD) |
+| `tags` | ❌ | array | Topic tags |
+| `lastmod` | ❌ | date | Last modified date |
+| `draft` | ❌ | boolean | Hide from production |
+| `summary` | ❌ | string | Post excerpt |
+| `images` | ❌ | array | Featured images |
+| `authors` | ❌ | array | Author references |
+| `layout` | ❌ | string | Layout component |
+| `canonicalUrl` | ❌ | string | SEO canonical URL |
 
-Content is modelled using [Contentlayer](https://www.contentlayer.dev/), which allows you to define your own content schema and use it to generate typed content objects. See [Contentlayer documentation](https://www.contentlayer.dev/docs/getting-started) for more information.
+### Example Post
 
-### Frontmatter
-
-Frontmatter follows [Hugo's standards](https://gohugo.io/content-management/front-matter/).
-
-Please refer to `contentlayer.config.ts` for an up to date list of supported fields. The following fields are supported:
-
-```
-title (required)
-date (required)
-tags (optional)
-lastmod (optional)
-draft (optional)
-summary (optional)
-images (optional)
-authors (optional list which should correspond to the file names in `data/authors`. Uses `default` if none is specified)
-layout (optional list which should correspond to the file names in `data/layouts`)
-canonicalUrl (optional, canonical url for the post for SEO)
-```
-
-Here's an example of a post's frontmatter:
-
-```
+```markdown
 ---
-title: 'Introducing Tailwind Nexjs Starter Blog'
-date: '2021-01-12'
-lastmod: '2021-01-18'
-tags: ['next-js', 'tailwind', 'guide']
+title: 'Getting Started with Next.js'
+date: '2024-01-15'
+lastmod: '2024-01-16'
+tags: ['nextjs', 'react', 'tutorial']
 draft: false
-summary: 'Looking for a performant, out of the box template, with all the best in web technology to support your blogging needs? Checkout the Tailwind Nextjs Starter Blog template.'
-images: ['/static/images/canada/mountains.jpg', '/static/images/canada/toronto.jpg']
-authors: ['default', 'sparrowhawk']
+summary: 'Learn how to build modern web applications with Next.js'
+images: ['/static/images/nextjs-tutorial.jpg']
+authors: ['default']
 layout: PostLayout
-canonicalUrl: https://tailwind-nextjs-starter-blog.vercel.app/blog/introducing-tailwind-nextjs-starter-blog
+canonicalUrl: https://yourblog.com/blog/nextjs-tutorial
 ---
+
+# Your content here
+
+Write your blog post using Markdown and MDX components.
 ```
 
-## Deploy
+## 🚀 Deployment Options
+
+### Vercel (Recommended)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/timlrx/tailwind-nextjs-starter-blog)
+
+1. Connect your GitHub repository
+2. Configure environment variables
+3. Deploy automatically on every push
 
 ### GitHub Pages
 
-A [`pages.yml`](.github/workflows/pages.yml) workflow is already provided. Simply select "GitHub Actions" in: `Settings > Pages > Build and deployment > Source`.
+Use the included workflow:
 
-### Vercel
+1. Go to `Settings > Pages > Build and deployment`
+2. Select "GitHub Actions" as source
+3. Push to trigger automatic deployment
 
-The easiest way to deploy the template is to deploy on [Vercel](https://vercel.com). Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Static Export
+
+For static hosting (S3, Firebase, etc.):
+
+```bash
+# Basic static export
+EXPORT=1 UNOPTIMIZED=1 yarn build
+
+# With subdirectory deployment
+EXPORT=1 UNOPTIMIZED=1 BASE_PATH=/myblog yarn build
+
+# Serve locally
+npx serve out
+```
 
 ### Netlify
 
-[Netlify](https://www.netlify.com/)’s Next.js runtime configures enables key Next.js functionality on your website without the need for additional configurations. Netlify generates serverless functions that will handle Next.js functionalities such as server-side rendered (SSR) pages, incremental static regeneration (ISR), `next/images`, etc.
+Netlify's Next.js runtime handles SSR, ISR, and other Next.js features automatically. See [Next.js on Netlify](https://docs.netlify.com/integrations/frameworks/next-js/) for details.
 
-See [Next.js on Netlify](https://docs.netlify.com/integrations/frameworks/next-js/overview/#next-js-runtime) for suggested configuration values and more details.
+### Static Build Considerations
 
-### Static hosting services (GitHub Pages / S3 / Firebase etc.)
+For static exports, consider:
+- Comment out `headers()` in `next.config.js`
+- Remove API routes (newsletter, etc.)
+- Use alternative image optimization if needed
 
-Run:
+## ❓ FAQ & Resources
 
-```sh
-$ EXPORT=1 UNOPTIMIZED=1 yarn build
-```
+### Common Questions
+- **[Custom MDX Components](faq/custom-mdx-component.md)** - Add interactive components
+- **[Customize Search](faq/customize-kbar-search.md)** - Configure Kbar search
+- **[Docker Deployment](faq/deploy-with-docker.md)** - Container deployment
 
-Then, deploy the generated `out` folder or run `npx serve out` it locally.
+### Getting Help
+- 📖 **[User Guide](USER_GUIDE.md)** - Content creation guide
+- 🛠️ **[Developer Docs](DEVELOPER_DOCS.md)** - Technical documentation
+- 🐛 **[Issues](https://github.com/timlrx/tailwind-nextjs-starter-blog/issues)** - Bug reports and feature requests
+- 💬 **[Discussions](https://github.com/timlrx/tailwind-nextjs-starter-blog/discussions)** - Community support
 
-> [!IMPORTANT]
-> If deploying with a URL base path, like https://example.org/myblog you need an extra `BASE_PATH` shell-var to the build command:
->
-> ```sh
-> $ EXPORT=1 UNOPTIMIZED=1 BASE_PATH=/myblog yarn build
-> ```
->
-> => In your code, `${process.env.BASE_PATH || ''}/robots.txt` will print `"/myblog/robots.txt"` in the `out` build (or only `/robots.txt` if `yarn dev`, ie: on localhost:3000)
+## 🙏 Support
 
-> [!TIP]
-> Alternatively to `UNOPTIMIZED=1`, to continue using `next/image`, you can use an alternative image optimization provider such as Imgix, Cloudinary or Akamai. See [image optimization documentation](https://nextjs.org/docs/app/building-your-application/deploying/static-exports#image-optimization) for more details.
+If you find this template helpful:
 
-Consider removing the following features that cannot be used in a static build:
+- ⭐ **Star this repository**
+- 🐦 **Share on social media**
+- 💖 **[Sponsor the project](https://github.com/sponsors/timlrx)**
+- 🤝 **Contribute improvements**
 
-1. Comment out `headers()` from `next.config.js`.
-2. Remove `api` folder and components which call the server-side function such as the Newsletter component. Not technically required and the site will build successfully, but the APIs cannot be used as they are server-side functions.
+## 📄 License
 
-## Frequently Asked Questions
+[MIT License](LICENSE) © [Timothy Lin](https://www.timlrx.com)
 
-- [How can I add a custom MDX component?](/faq/custom-mdx-component.md)
-- [How can I customize the `kbar` search?](/faq/customize-kbar-search.md)
-- [Deploy with docker](/faq/deploy-with-docker.md)
+---
 
-## Support
-
-Using the template? Support this effort by giving a star on GitHub, sharing your own blog and giving a shoutout on Twitter or becoming a project [sponsor](https://github.com/sponsors/timlrx).
-
-## Licence
-
-[MIT](https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/main/LICENSE) © [Timothy Lin](https://www.timlrx.com)
+**Ready to start blogging?** Follow the [Quick Start](#-quick-start) guide above!
